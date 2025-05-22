@@ -1,15 +1,32 @@
+/**
+ * @file riddle.h
+ * @brief Заголовочный файл для работы с загадками (Riddle) и их загрузки из CSV
+ */
+
 #pragma once
 
 #include <fstream>
 #include <sstream>
 
+/**
+ * @struct Riddle
+ * @brief Описывает одну загадку с полем вопроса, ответом и двумя подсказками
+ */
 struct Riddle {
     std::string question;
     std::string answer;
     std::vector<std::string> hints;
 };
 
-
+/**
+ * @brief Загружает список загадок из CSV-файла с разделителем ';'
+ *
+ * Файл должен содержать заголовок в первой строке и далее строки вида:
+ * question;answer;hint1;hint2
+ *
+ * @param filePath Путь к CSV-файлу с загадками
+ * @return Вектор структур Riddle; пустой, если файл не найден или пуст
+ */
 std::vector<Riddle> loadRiddles(const std::string &filePath) {
     std::vector<Riddle> riddles;
     std::ifstream file(filePath);

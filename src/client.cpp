@@ -3,8 +3,8 @@
 #include <iostream>
 #include <cstring>
 #include <unistd.h>
-#include <limits>  // для std::numeric_limits
-#include <ios>      // для std::streamsize
+#include <limits>
+#include <ios>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 

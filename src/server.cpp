@@ -85,7 +85,7 @@ bool start(uint16_t port, const std::string &riddleFilePath, bool testMode) {
                 Protocol::sendReliable(sockfd, clientAddr, replyPkt);
                 break;
             } else {
-                replyPkt.payload = "нет, осталось " + std::to_string(maxAttempts - attempts) + " попыток";
+                replyPkt.payload = "нет, осталось " + testMode ? "бесконечно много" : std::to_string(maxAttempts - attempts) + " попыток";
                 Protocol::sendReliable(sockfd, clientAddr, replyPkt);
             }
         } else if (inPkt.hdr.msg_type == Protocol::MSG_HINT) {
